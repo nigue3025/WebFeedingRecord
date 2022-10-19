@@ -1,0 +1,53 @@
+﻿@model IEnumerable<BabyFeedingRecordWebApplication.Models.FeedingStatistics>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>FeedingStatistics</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FeedingDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MotherMilkTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FormularMilkTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeIntervalAvg)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FeedingDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MotherMilkTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FormularMilkTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeIntervalAvg)
+            </td>
+       
+        </tr>
+}
+    </tbody>
+</table>
