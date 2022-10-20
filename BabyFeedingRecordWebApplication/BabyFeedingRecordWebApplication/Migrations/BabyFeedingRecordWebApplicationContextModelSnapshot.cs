@@ -49,6 +49,34 @@ namespace BabyFeedingRecordWebApplication.Migrations
 
                     b.ToTable("FeedingRecord");
                 });
+
+            modelBuilder.Entity("BabyFeedingRecordWebApplication.Models.FeedingStatistics", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("FeedingDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("FormularMilkTotal")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MotherMilkTotal")
+                        .HasColumnType("int");
+
+                    b.Property<double>("TimeIntervalAvg")
+                        .HasColumnType("float");
+
+                    b.Property<int>("Total")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FeedingStatistics");
+                });
 #pragma warning restore 612, 618
         }
     }

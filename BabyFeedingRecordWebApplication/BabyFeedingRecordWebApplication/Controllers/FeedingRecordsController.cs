@@ -31,14 +31,20 @@ namespace BabyFeedingRecordWebApplication.Controllers
         }
 
         // GET: FeedingRecords
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? startIndex=1)
         {
-            //需要增加依照feedingTime時間倒序排列的方法
-            var kk=await _context.FeedingRecord.ToListAsync();
-            kk.Sort((a, b) => a.FeedingTime.CompareTo(b.FeedingTime));
-            kk.Reverse();
-            return View(kk);
-            //return View(await _context.FeedingRecord.ToListAsync());
+            //依照feedingTime時間倒序排列
+            ViewData["currPageNo"] = startIndex;
+            startIndex = (startIndex-1) * 30;
+            var feedRecords=await _context.FeedingRecord.ToListAsync();
+            ViewData["totalPageNo"] =(int) Math.Ceiling(feedRecords.Count() / 30.0);
+            feedRecords.Sort((a, b) => a.FeedingTime.CompareTo(b.FeedingTime));
+            feedRecords.Reverse();
+            //依照給定頁數篩選30筆資料
+            feedRecords= feedRecords.Where((o, i) => ((i < (startIndex+30)&& i>=startIndex) )).Select(a => a).ToList();
+            
+            return View(feedRecords);
+         
         }
 
         // GET: FeedingRecords/Details/5

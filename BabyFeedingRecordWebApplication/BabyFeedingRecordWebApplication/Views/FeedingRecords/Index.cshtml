@@ -1,13 +1,31 @@
-﻿@model IEnumerable<BabyFeedingRecordWebApplication.Models.FeedingRecord>
+﻿@*@model BabyFeedingRecordWebApplication.Models.FeedingRecordComponentSet*@
+@model IEnumerable<BabyFeedingRecordWebApplication.Models.FeedingRecord>
 
 @{
     ViewData["Title"] = "Index";
+    int totalPageNo=1;
+    int currPage = 1;
+    string? totalPageNoStr = ViewData["totalPageNo"].ToString();
+    int.TryParse(totalPageNoStr, out totalPageNo);
+    int.TryParse(ViewData["currPageNo"].ToString(), out currPage);
+
+    DateTime currDt = Model.First().FeedingDate;
+    string styleColor1 = "background-color:white";
+    string styleColor2 = "background-color:azure";
+    string selectedStyleColor = styleColor1;
 }
 
-<h1>Index</h1>
+<h1>FeedingRecords</h1>
+<p><a asp-action="Create">Create New</a></p>
 
-<p>
-    <a asp-action="Create">Create New</a>
+<p>current time: @DateTime.Now</p>
+<p> 
+    <label>[@currPage]</label>
+    @for(int pageNo=0;pageNo<totalPageNo; pageNo++)
+    {
+        <a asp-action="Index" asp-route-startIndex=@(pageNo+1)>@(pageNo+1)</a>
+    }
+
 </p>
 <table class="table">
     <thead>
@@ -19,6 +37,7 @@
                 @Html.DisplayNameFor(model => model.FeedingTime)
             </th>
             <th>
+              
                 @Html.DisplayNameFor(model => model.MotherMilkVolume)
             </th>
             <th>
@@ -34,23 +53,33 @@
 
 
 @foreach (var item in Model) {
-        <tr>
-            <td>
+
+            if (currDt.Day != item.FeedingDate.Day)
+            {
+                if (selectedStyleColor == styleColor1) 
+                    selectedStyleColor = styleColor2;
+                else 
+                    selectedStyleColor = styleColor1;
+                currDt = item.FeedingDate;
+            }
+
+            <tr>
+            <td style=@selectedStyleColor>
                 @Html.DisplayFor(modelItem => item.FeedingDate)
             </td>
-            <td>
+                <td style=@selectedStyleColor>
                 @Html.DisplayFor(modelItem => item.FeedingTime)
             </td>
-            <td>
+                <td style=@selectedStyleColor>
                 @Html.DisplayFor(modelItem => item.MotherMilkVolume)
             </td>
-            <td>
+                <td style=@selectedStyleColor>
                 @Html.DisplayFor(modelItem => item.FormularMilkVolume)
             </td>
-            <td>
+                <td style=@selectedStyleColor>
                 @Html.DisplayFor(modelItem => item.Memo)
             </td>
-            <td>
+                <td style=@selectedStyleColor>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 @*<a asp-action="Details" asp-route-id="@item.Id">Details</a> |*@
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>

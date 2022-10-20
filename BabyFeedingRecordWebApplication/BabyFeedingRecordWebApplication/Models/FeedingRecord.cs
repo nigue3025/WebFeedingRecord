@@ -1,31 +1,57 @@
 ﻿using Microsoft.VisualBasic;
 using Newtonsoft.Json;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace BabyFeedingRecordWebApplication.Models
 {
-    public class FeedingRecordComponentSet
-    {
-        IEnumerable<FeedingRecord> model;
-        //JsonSerializer 
+    //public class FeedingRecordComponentSet
+    //{
+    //    public IEnumerable<FeedingRecord> Models;
+    //    public int PageSize = 30;
+        
+    //    public FeedingRecordComponentSet(IEnumerable<FeedingRecord>model,int pageSize=30)
+    //    {
+    //        this.Models = model;
+    //        this.PageSize = pageSize;   
+    //    }
+
+    //    public int ElementNo 
+    //    {
+    //        get => Models.Count();
+    //    }
+
+    //    public int PageNo
+    //    {
+    //        get => Models.Count() / PageSize;
+    //    }
+
+    //    //JsonSerializer 
   
-    }
+    //}
 
     public class FeedingRecord
     {
         public int Id { get; set; }
+        [Display(Name ="日期")]
         [DataType(DataType.Date)]
+        
         public DateTime FeedingDate { get; set; }
 
+        [Display(Name = "時間")]
         [DataType(DataType.Time)]
         public DateTime FeedingTime { get; set; }
 
+        [Display(Name = "母奶")]
         public int MotherMilkVolume { get; set; }
+
+        [Display(Name = "配方")]
         public int FormularMilkVolume { get; set; }
 
         public string? Memo { get; set; }
 
-        
+
+
         static bool JudgeLen(string msgStr)
         {
             if (msgStr.Split(msgSplitChar).Length < 2)

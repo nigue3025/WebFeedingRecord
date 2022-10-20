@@ -2,11 +2,24 @@
 
 @{
     ViewData["Title"] = "Index";
+    int currPage = 1;
+    int pageSize=30;
+    if (ViewData["currPageNo"] != null) 
+        int.TryParse(ViewData["currPageNo"].ToString(), out currPage);
+
+    var ModelLst = Model.ToList();
+    int totalPageSize = (int)Math.Ceiling((Model.Count() / (double)pageSize));
 }
 
 <h1>FeedingStatistics</h1>
 
-
+<p>
+    <label>[@currPage]</label>
+    @for(int pageNo=0;pageNo<totalPageSize;pageNo++)
+    {
+        <a asp-action="Index" asp-route-pageIndex=@(pageNo+1)>@(pageNo+1)</a>
+    }
+</p>
 <table class="table">
     <thead>
         <tr>
@@ -29,8 +42,14 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
+@*@foreach (var item in Model) {*@
+        @for(int i=((currPage-1)*pageSize);i<((currPage-1)*pageSize+pageSize);i++){
+
+            if (i > ModelLst.Count - 1) break;
+
+            var item = ModelLst[i];
+
+            <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.FeedingDate)
             </td>
