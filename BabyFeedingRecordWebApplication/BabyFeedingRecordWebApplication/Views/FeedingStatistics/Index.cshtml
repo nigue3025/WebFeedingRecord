@@ -14,10 +14,13 @@
 <h1>FeedingStatistics</h1>
 
 <p>
-    <label>[@currPage]</label>
-    @for(int pageNo=0;pageNo<totalPageSize;pageNo++)
-    {
-        <a asp-action="Index" asp-route-pageIndex=@(pageNo+1)>@(pageNo+1)</a>
+    @for(int pageNo=0;pageNo<totalPageSize;pageNo++){
+        if((@pageNo+1)==@currPage) {
+            <label>[@currPage]</label>
+        }
+        else{
+            <a asp-action="Index" asp-route-pageIndex=@(pageNo+1)>@(pageNo+1)</a>;
+        }
     }
 </p>
 <table class="table">
