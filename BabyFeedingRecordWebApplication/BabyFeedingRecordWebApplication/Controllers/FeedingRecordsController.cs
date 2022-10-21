@@ -166,7 +166,7 @@ namespace BabyFeedingRecordWebApplication.Controllers
             {
                 try
                 {
-
+                    feedingRecord.FeedingDate = DateTime.Now;
                     _context.Update(feedingRecord);
                     await _context.SaveChangesAsync();
                 }
