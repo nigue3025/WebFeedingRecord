@@ -12,7 +12,7 @@
     if (Model.Count() == 0)
         currDt = new DateTime();
     else
-        currDt = Model.First().FeedingDate;
+        currDt = Model.First().FeedingTime;
 
     
     string styleColor1 = "background-color:white";
@@ -42,9 +42,6 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.FeedingDate)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.FeedingTime)
             </th>
             <th>
@@ -65,19 +62,17 @@
 
 @foreach (var item in Model) {
 
-            if (currDt.Day != item.FeedingDate.Day)
+            if (currDt.Day != item.FeedingTime.Day)
             {
                 if (selectedStyleColor == styleColor1) 
                     selectedStyleColor = styleColor2;
                 else 
                     selectedStyleColor = styleColor1;
-                currDt = item.FeedingDate;
+                currDt = item.FeedingTime;
             }
 
             <tr>
-            <td style=@selectedStyleColor>
-                @Html.DisplayFor(modelItem => item.FeedingDate)
-            </td>
+
                 <td style=@selectedStyleColor>
                 @Html.DisplayFor(modelItem => item.FeedingTime)
             </td>

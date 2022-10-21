@@ -24,7 +24,7 @@ namespace BabyFeedingRecordWebApplication.Models
 
         public void Add(FeedingRecord feedingRecord)
         {
-            var DateOnly = ToDateNoTime(feedingRecord.FeedingDate);
+            var DateOnly = ToDateNoTime(feedingRecord.FeedingTime);
             if (!statDict.ContainsKey(DateOnly))
                 statDict[DateOnly] = new List<FeedingRecord>();
             statDict[DateOnly].Add(feedingRecord);
@@ -67,7 +67,7 @@ namespace BabyFeedingRecordWebApplication.Models
 
                 getMilkSum(stat.Value, out motherMilkSum, out formularMilkSum, out MilkSum);
                 double intervalAvg = getTimeIntervalAvg(stat.Value);
-                FeedingStatistics feedingStatistics = new FeedingStatistics() { FeedingDate = stat.Key,MotherMilkTotal=motherMilkSum, FormularMilkTotal=formularMilkSum,Total=MilkSum ,TimeIntervalAvg=intervalAvg};
+                FeedingStatistics feedingStatistics = new FeedingStatistics() { FeedingTime = stat.Key,MotherMilkTotal=motherMilkSum, FormularMilkTotal=formularMilkSum,Total=MilkSum ,TimeIntervalAvg=intervalAvg};
                 feedingstatisticList.Add(feedingStatistics);
 
             }
@@ -79,7 +79,7 @@ namespace BabyFeedingRecordWebApplication.Models
     {
         public int Id { get; set; }
         [DataType(DataType.Date)]
-        public DateTime FeedingDate { get; set; }
+        public DateTime FeedingTime { get; set; }
 
         public int MotherMilkTotal { get; set; }
         public int FormularMilkTotal { get; set; }

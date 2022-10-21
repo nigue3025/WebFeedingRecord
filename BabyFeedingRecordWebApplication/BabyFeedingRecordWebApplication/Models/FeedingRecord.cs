@@ -33,13 +33,11 @@ namespace BabyFeedingRecordWebApplication.Models
     public class FeedingRecord
     {
         public int Id { get; set; }
-        [Display(Name ="日期")]
-        [DataType(DataType.Date)]
-        
+        [Display(Name ="更新時間")]
         public DateTime FeedingDate { get; set; }
 
-        [Display(Name = "時間")]
-        [DataType(DataType.Time)]
+        [Display(Name = "餵食時間")]
+        //[DataType(DataType.Time)]
         public DateTime FeedingTime { get; set; }
 
         [Display(Name = "母奶")]

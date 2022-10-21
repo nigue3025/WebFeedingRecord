@@ -122,10 +122,11 @@ namespace BabyFeedingRecordWebApplication.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FeedingDate,FeedingTime,MotherMilkVolume,FormularMilkVolume,Memo")] FeedingRecord feedingRecord)
+        public async Task<IActionResult> Create([Bind("Id,FeedingTime,MotherMilkVolume,FormularMilkVolume,Memo")] FeedingRecord feedingRecord)
         {
             if (ModelState.IsValid)
             {
+                feedingRecord.FeedingDate = DateTime.Now;
                 _context.Add(feedingRecord);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -165,6 +166,7 @@ namespace BabyFeedingRecordWebApplication.Controllers
             {
                 try
                 {
+
                     _context.Update(feedingRecord);
                     await _context.SaveChangesAsync();
                 }
