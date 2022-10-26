@@ -1,0 +1,49 @@
+﻿@model IEnumerable<BabyFeedingRecordWebApplication.Models.FeedingRecord>
+
+@{
+    ViewData["Title"] = "RecordOfDay";
+}
+
+<h1>RecordOfDay</h1>
+
+<p>
+    <a asp-action="Index">Back to feeding statistics</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FeedingTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MotherMilkVolume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FormularMilkVolume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Memo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FeedingTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MotherMilkVolume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FormularMilkVolume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Memo)
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>

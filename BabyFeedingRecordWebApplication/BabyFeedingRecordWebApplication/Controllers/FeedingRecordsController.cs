@@ -38,17 +38,12 @@ namespace BabyFeedingRecordWebApplication.Controllers
         //}
 
         // GET: FeedingRecords
-        public async Task<IActionResult> Index(int? startIndex=1,List<FeedingRecord> thefeedingRecords=null)
+        public async Task<IActionResult> Index(int? startIndex=1)
         {
             //依照feedingTime時間倒序排列
             ViewData["currPageNo"] = startIndex;
             startIndex = (startIndex-1) * 30;
-            List<FeedingRecord>? feedRecords;
-
-            if (thefeedingRecords.Count==0)
-                feedRecords = await _context.FeedingRecord.ToListAsync();
-            else
-                feedRecords = thefeedingRecords;
+            var feedRecords = await _context.FeedingRecord.ToListAsync();
 
             ViewData["totalPageNo"] =(int) Math.Ceiling(feedRecords.Count() / 30.0);
             feedRecords.Sort((a, b) => a.FeedingTime.CompareTo(b.FeedingTime));
