@@ -24,5 +24,27 @@ namespace BabyFeedingRecordWebApplication.Controllers
             ViewData["currPageNo"] = pageIndex;
             return View(feedingStatisticsListBuilder.generateFeedingStatistics());
         }
+
+
+        public async Task<IActionResult> RecordOfDay(string? queryDateStr)
+        {
+            var queryDateStrAry = queryDateStr.Split('.');
+            DateTime queryDate = new DateTime(
+                int.Parse(queryDateStrAry[0]),
+                int.Parse(queryDateStrAry[1]),
+                int.Parse(queryDateStrAry[2]),
+                0,
+                0,
+                0
+                );
+            var feedingRecords = await _context.FeedingRecord.Where(a=>
+                a.FeedingTime.Year==queryDate.Year &&
+                a.FeedingTime.Month==queryDate.Month &&
+                a.FeedingTime.Day==queryDate.Day
+                ).Select(a=>a).ToListAsync();
+            return View(feedingRecords);
+        }
+
+        
     }
 }

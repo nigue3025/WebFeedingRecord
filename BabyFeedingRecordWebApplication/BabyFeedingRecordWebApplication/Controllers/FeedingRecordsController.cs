@@ -30,13 +30,26 @@ namespace BabyFeedingRecordWebApplication.Controllers
             lineBot = theLineBot;
         }
 
+        //public IActionResult Index2(List<FeedingRecord> feedingRecords)
+        //{
+        //    ViewData["currPageNo"] = 1;
+        //    ViewData["totalPageNo"] = 1;
+        //    return View(feedingRecords);
+        //}
+
         // GET: FeedingRecords
-        public async Task<IActionResult> Index(int? startIndex=1)
+        public async Task<IActionResult> Index(int? startIndex=1,List<FeedingRecord> thefeedingRecords=null)
         {
             //依照feedingTime時間倒序排列
             ViewData["currPageNo"] = startIndex;
             startIndex = (startIndex-1) * 30;
-            var feedRecords=await _context.FeedingRecord.ToListAsync();
+            List<FeedingRecord>? feedRecords;
+
+            if (thefeedingRecords.Count==0)
+                feedRecords = await _context.FeedingRecord.ToListAsync();
+            else
+                feedRecords = thefeedingRecords;
+
             ViewData["totalPageNo"] =(int) Math.Ceiling(feedRecords.Count() / 30.0);
             feedRecords.Sort((a, b) => a.FeedingTime.CompareTo(b.FeedingTime));
             feedRecords.Reverse();

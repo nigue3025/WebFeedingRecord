@@ -5,7 +5,7 @@ namespace BabyFeedingRecordWebApplication.Models
 {
     public class FeedingStatisticsListBuilder
     {
-        SortedDictionary<DateTime, List<FeedingRecord>> statDict;
+        public SortedDictionary<DateTime, List<FeedingRecord>> statDict;
         public FeedingStatisticsListBuilder()
         {
             statDict = new SortedDictionary<DateTime, List<FeedingRecord>>();
@@ -80,7 +80,8 @@ namespace BabyFeedingRecordWebApplication.Models
                     Total=MilkSum ,
                     TimeIntervalAvg=intervalAvg,
                     MotherMilkPercentage=getPercentage(motherMilkSum,MilkSum),
-                    FormularMilkPercentage=getPercentage(formularMilkSum,MilkSum)
+                    FormularMilkPercentage=getPercentage(formularMilkSum,MilkSum),
+                    feedingRecords=stat.Value.ToList()
                 };
                 feedingstatisticList.Add(feedingStatistics);
 
@@ -91,6 +92,8 @@ namespace BabyFeedingRecordWebApplication.Models
     }
     public class FeedingStatistics
     {
+        public List<FeedingRecord>? feedingRecords;
+
         public int Id { get; set; }
         [DataType(DataType.Date)]
         public DateTime FeedingTime { get; set; }

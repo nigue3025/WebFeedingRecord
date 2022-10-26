@@ -54,7 +54,8 @@
 
             <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.FeedingTime)
+                    <a asp-action="RecordOfDay" asp-route-queryDateStr="@item.FeedingTime.ToString("yyyy.MM.dd")"> @Html.DisplayFor(modelItem=>item.FeedingTime)</a>
+               
             </td>
             <td>
                 @Html.DisplayFor(modelItem=>item.MMilkTotalWithPcntg)
