@@ -43,6 +43,7 @@ namespace BabyFeedingRecordWebApplication.Models
             totalMilk = MMilk + FMilk;
         }
 
+      
         double getTimeIntervalAvg(List<FeedingRecord> feedingRecords)
         {
             double avg = 0;
@@ -56,6 +57,11 @@ namespace BabyFeedingRecordWebApplication.Models
             }
             return avg;
         }   
+        double getPercentage(int theMilk,double totalMilk)
+        {
+            return ((double) theMilk)/ totalMilk *100;
+        }
+        
 
         public List<FeedingStatistics> generateFeedingStatistics()
         {
@@ -64,10 +70,18 @@ namespace BabyFeedingRecordWebApplication.Models
             foreach(var stat in revStatDict)
             {
                 int motherMilkSum, formularMilkSum, MilkSum;
-
+                double MMilkPercentage, FMilkPercentage;
                 getMilkSum(stat.Value, out motherMilkSum, out formularMilkSum, out MilkSum);
                 double intervalAvg = getTimeIntervalAvg(stat.Value);
-                FeedingStatistics feedingStatistics = new FeedingStatistics() { FeedingTime = stat.Key,MotherMilkTotal=motherMilkSum, FormularMilkTotal=formularMilkSum,Total=MilkSum ,TimeIntervalAvg=intervalAvg};
+                FeedingStatistics feedingStatistics = new FeedingStatistics() { 
+                    FeedingTime = stat.Key,
+                    MotherMilkTotal=motherMilkSum, 
+                    FormularMilkTotal=formularMilkSum,
+                    Total=MilkSum ,
+                    TimeIntervalAvg=intervalAvg,
+                    MotherMilkPercentage=getPercentage(motherMilkSum,MilkSum),
+                    FormularMilkPercentage=getPercentage(formularMilkSum,MilkSum)
+                };
                 feedingstatisticList.Add(feedingStatistics);
 
             }
@@ -84,8 +98,26 @@ namespace BabyFeedingRecordWebApplication.Models
         public int MotherMilkTotal { get; set; }
         public int FormularMilkTotal { get; set; }
 
+        public double MotherMilkPercentage { get; set; }
+        public double FormularMilkPercentage { get; set; }
         public int Total { get; set; }
         public double TimeIntervalAvg{get;set;}
+
+        public string MMilkTotalWithPcntg
+        {
+            get
+            {
+                return $"{this.MotherMilkTotal} ({this.MotherMilkPercentage.ToString("0.00")}%)";
+            }
+        }
+
+        public string FMilkTOtalWithPcntg
+        {
+            get
+            {
+                return $"{this.FormularMilkTotal} ({this.FormularMilkPercentage.ToString("0.00")}%)";
+            }
+        }
 
     }
 }

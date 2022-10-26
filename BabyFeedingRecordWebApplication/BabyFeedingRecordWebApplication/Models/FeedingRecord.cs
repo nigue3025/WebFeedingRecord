@@ -62,8 +62,10 @@ namespace BabyFeedingRecordWebApplication.Models
         static DateTime getTime(string timeStr)
         {
             int hr, min;
+            
             try
             {
+                timeStr=timeStr.Trim();
                 hr = int.Parse(timeStr.Substring(0, 2));
                 min = int.Parse(timeStr.Substring(2, 2));
             }
