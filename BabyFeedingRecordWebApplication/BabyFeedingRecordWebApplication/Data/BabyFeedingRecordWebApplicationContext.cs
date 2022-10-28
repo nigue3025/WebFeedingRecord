@@ -17,5 +17,7 @@ namespace BabyFeedingRecordWebApplication.Data
         public DbSet<BabyFeedingRecordWebApplication.Models.FeedingRecord> FeedingRecord { get; set; } = default!;
 
         public DbSet<BabyFeedingRecordWebApplication.Models.FeedingStatistics> FeedingStatistics { get; set; }
+
+        public DbSet<BabyFeedingRecordWebApplication.Models.MovingAvg> MovingAvg { get; set; }
     }
 }

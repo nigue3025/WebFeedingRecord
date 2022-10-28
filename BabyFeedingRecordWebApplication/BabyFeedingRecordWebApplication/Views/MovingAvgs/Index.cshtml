@@ -1,0 +1,80 @@
+﻿@model IEnumerable<BabyFeedingRecordWebApplication.Models.MovingAvg>
+
+@{
+    ViewData["Title"] = "Index";
+    int currMaNo =3;
+    int.TryParse(ViewData["MaNum"].ToString(), out currMaNo);
+}
+
+<h1>MovingAverage</h1>
+
+<p>
+    <label>n=</label>
+    @foreach(var manum in MovingAvg.MaNumLst)
+    {
+        if(manum==@currMaNo)
+        {
+            <label>[@manum]</label>
+        }
+        else
+        {
+            <a asp-action="Index" asp-route-no="@manum">@manum</a>
+        }
+    }
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DateInterval)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MA_MMilk)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MA_MMpcntg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MA_FMilk)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MA_FMpcntg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MA_Total)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateInterval)
+            </td>
+                <td>
+                    <label>@item.MA_MMilk.ToString("0.00")</label>
+              
+                </td>
+                <td>
+                    <label>@item.MA_MMpcntg.ToString("0.00")</label>
+               
+                </td>
+                <td>
+                    <label>@item.MA_FMilk.ToString("0.00")</label>
+                </td>
+                <td>
+                    <label>@item.MA_FMpcntg.ToString("0.00")</label>
+                </td>
+                <td>
+                    <label>@item.MA_Total.ToString("0.00")</label>
+                </td>
+
+            <td>
+@*                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

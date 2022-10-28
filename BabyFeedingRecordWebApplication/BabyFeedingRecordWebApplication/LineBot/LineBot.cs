@@ -3,6 +3,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace BabyFeedingRecordWebApplication.LineBot
 {
+
     public class LineBotData
     {
         public string replyToken;
@@ -55,6 +56,8 @@ namespace BabyFeedingRecordWebApplication.LineBot
         public override void decodeReceivedMessage(string rawstr)
         {
             receivedMessage = Utility.Parsing(rawstr);
+
+           
             var replytokenlst = receivedMessage.events.Where(a=>a.message!=null).Select(a => a.replyToken).ToList();
             var replymsglst = receivedMessage.events.Where(a => a.message != null).Select(a => a.message.text).ToList();
             var uidlst = receivedMessage.events.Where(a => a.message != null).Select(a => a.source.userId).ToList();
