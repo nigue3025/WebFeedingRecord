@@ -56,7 +56,7 @@ namespace BabyFeedingRecordWebApplication.Models
             }
         }
 
-        [Display(Name = "母奶比率(%)")]
+        [Display(Name = "配方比率(%)")]
         public double MA_FMpcntg
         {
             get
@@ -65,7 +65,7 @@ namespace BabyFeedingRecordWebApplication.Models
             }
         }
 
-        [Display(Name = "配方比率(%)")]
+        [Display(Name = "母奶比率(%)")]
         public double MA_MMpcntg
         {
             get

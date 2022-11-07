@@ -1,7 +1,8 @@
 ﻿@*@model BabyFeedingRecordWebApplication.Models.FeedingRecordComponentSet*@
 @model IEnumerable<BabyFeedingRecordWebApplication.Models.FeedingRecord>
-
+@inject IHttpContextAccessor Accessor
 @{
+
     ViewData["Title"] = "Index";
     int totalPageNo=1;
     int currPage = 1;
@@ -14,15 +15,35 @@
     else
         currDt = Model.First().FeedingTime;
 
-    
+
     string styleColor1 = "background-color:white";
     string styleColor2 = "background-color:azure";
     string selectedStyleColor = styleColor1;
+    bool LogInstatus=false;
+    if (Accessor.HttpContext!=null)
+    {
+        if (Accessor.HttpContext.Session.GetInt32("LoginStatus") == 0)
+            LogInstatus = true;
+    }
+
 }
 
 <h1>FeedingRecords</h1>
-<p><a asp-action="Create">Create New</a></p>
 
+
+
+@if (LogInstatus)
+{
+    <p><a asp-action="Logout">Logout</a></p>
+    <p><a asp-action="Create">Create New</a></p>
+
+}
+else
+{
+    <p> <a asp-action="Login">Login</a></p>
+
+
+}
 <p>current time: @DateTime.Now</p>
 <p> 
     
@@ -84,12 +105,16 @@
             </td>
                 <td style=@selectedStyleColor>
                 @Html.DisplayFor(modelItem => item.Memo)
-            </td>
-                <td style=@selectedStyleColor>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                  
+                   </td>
+                @if (LogInstatus)
+                {
+                        <td style=@selectedStyleColor>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 @*<a asp-action="Details" asp-route-id="@item.Id">Details</a> |*@
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
+                </td>
+                }
         </tr>
 }
     </tbody>
