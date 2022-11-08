@@ -36,7 +36,7 @@ namespace BabyFeedingRecordWebApplication.LineBot
     public abstract class LineBot
     {
         public string ChannelAccessToken = string.Empty;
-        public string ChannelSecrete = string.Empty;
+        public string ChannelSecret = string.Empty;
         public string ServerWebsite = string.Empty;
         public List<LineBotData> LineEvents = new List<LineBotData>();
         public List<LineBotData> UnapprovedLineEvents = new List<LineBotData>();
@@ -53,7 +53,7 @@ namespace BabyFeedingRecordWebApplication.LineBot
             throw new NotImplementedException();
         }
         
-        public virtual bool validateSignature(string channelSecrete)
+        public virtual bool validateSignature(string channelSecret)
         {
             throw new NotImplementedException();
         }
@@ -124,7 +124,7 @@ namespace BabyFeedingRecordWebApplication.LineBot
             if (hd.TryGetValue("X-Line-Signature", out var value))
             {
                 string? xlineSignature = value.FirstOrDefault();
-                if (Convert.ToBase64String(new HMACSHA256(Encoding.UTF8.GetBytes(ChannelSecrete)).ComputeHash(Encoding.UTF8.GetBytes(bodyStr))) == xlineSignature)
+                if (Convert.ToBase64String(new HMACSHA256(Encoding.UTF8.GetBytes(ChannelSecret)).ComputeHash(Encoding.UTF8.GetBytes(bodyStr))) == xlineSignature)
                 {
                     return true;
                 }

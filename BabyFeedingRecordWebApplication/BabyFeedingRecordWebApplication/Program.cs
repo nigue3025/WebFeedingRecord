@@ -13,7 +13,7 @@ int k;
 // Add services to the container.
 LineBot lineBot = new IsRockLineBot() {
     ChannelAccessToken = builder.Configuration["ChannelAccessToken"],
-    ChannelSecrete = builder.Configuration["ChannelSecrete"],
+    ChannelSecret = builder.Configuration["ChannelSecret"],
     ServerWebsite = builder.Configuration["webSite"],
     permittedGids = builder.Configuration.GetSection("AllowedLineGroupID").Get<List<string>>(),
     permittedUids = builder.Configuration.GetSection("AllowedLineUID").Get<List<string>>()
