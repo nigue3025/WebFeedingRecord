@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.Contracts;
 
 namespace BabyFeedingRecordWebApplication.Models
 {
@@ -46,6 +47,8 @@ namespace BabyFeedingRecordWebApplication.Models
         [Display(Name = "配方")]
         public int FormularMilkVolume { get; set; }
 
+        [Display(Name ="副食品")]
+        public int BabyFoodVolume { get; set; }
         public string? Memo { get; set; }
 
 
@@ -93,51 +96,55 @@ namespace BabyFeedingRecordWebApplication.Models
             return string.Join(',',strLst);
         }
 
+        enum eMilkType { eMmilk,eFmilk, eBabyfood } //對應foodTypeCharAry
+        static char[] foodTypeCharAry = new char[] { '母', '配', '副' }; //對應eMilkType
+
+        static bool containFoodType(string msgStr,out List<char> foodTypeLst)
+        {
+            bool containFood = false;
+            foodTypeLst = new List<char>();
+            foreach (char msgchr in msgStr)
+            {
+                if (foodTypeCharAry.Contains(msgchr))
+                {
+                    containFood = true;
+                    foodTypeLst.Add(msgchr);
+                }
+            }
+            return containFood;
+        }
+
         public static bool CreateFeedingRecord(string msgStr,out FeedingRecord feedingRecord,out string outMsg)
         {
             feedingRecord = new FeedingRecord();
             outMsg = "格式錯誤";
-
             try
             {
                 if (!JudgeLen(msgStr))
                     return false;
                 var msgStrAry = msgStr.Split(msgSplitChar);
-               
                 var timeStr = msgStrAry[0];
                  msgStr = msgStrAry[1];
-
-            
                 feedingRecord.MotherMilkVolume = 0;
                 feedingRecord.FormularMilkVolume = 0;
-
-                int MMilk = 0;
-                int FMilk = 0;
-                if (msgStr.Contains("配") || msgStr.Contains("母"))
+                int[] milktypeVolume = new int[Enum.GetNames(typeof(eMilkType)).Length] ;
+                milktypeVolume = milktypeVolume.Select(a => a = 0).ToArray();
+                List<char> containedfoodTypeList;
+                if(containFoodType(msgStr,out containedfoodTypeList))
                 {
-                    var AllMilk = msgStr.Split(new char[] { '母', '配' });
-                    if (AllMilk.Length > 2)
+                    var AllMilk = msgStr.Split(foodTypeCharAry);
+                    var foodTypeCharLst = foodTypeCharAry.ToList();
+                    foreach (var foodElmnt in containedfoodTypeList)
                     {
-                        int.TryParse(AllMilk[0], out MMilk);
-                        int.TryParse(AllMilk[1], out FMilk);
+                        int currFoodTypeIndex = foodTypeCharLst.IndexOf(foodElmnt);
+                        int.TryParse(AllMilk[containedfoodTypeList.IndexOf(foodElmnt)],out milktypeVolume[currFoodTypeIndex]);
                     }
-                    else
-                    {
-                        if (msgStr.Contains("母"))
-                            int.TryParse(AllMilk[0], out MMilk);
-                        else
-                            int.TryParse(AllMilk[0], out FMilk);
-                    }
-
                     feedingRecord.FeedingDate = DateTime.Now;
                     feedingRecord.FeedingTime = getTime(timeStr);
-                    feedingRecord.FormularMilkVolume = FMilk;
-                    feedingRecord.MotherMilkVolume = MMilk;
+                    feedingRecord.FormularMilkVolume = milktypeVolume[(int)eMilkType.eFmilk];
+                    feedingRecord.MotherMilkVolume = milktypeVolume[(int)eMilkType.eMmilk];
+                    feedingRecord.BabyFoodVolume = milktypeVolume[(int)eMilkType.eBabyfood];
                     feedingRecord.Memo = getMemo(msgStrAry);
-
-
-                   
-                  
                 }
             }
             catch (Exception ex)
@@ -145,11 +152,7 @@ namespace BabyFeedingRecordWebApplication.Models
                 return false;
             }
             outMsg = "";
-            return true;
-            
+            return true;            
         }
-
-
-
     }
 }

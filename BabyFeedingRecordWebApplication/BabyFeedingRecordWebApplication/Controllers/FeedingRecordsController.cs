@@ -224,7 +224,7 @@ namespace BabyFeedingRecordWebApplication.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FeedingDate,FeedingTime,MotherMilkVolume,FormularMilkVolume,Memo")] FeedingRecord feedingRecord)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FeedingDate,FeedingTime,MotherMilkVolume,FormularMilkVolume,BabyFoodVolume,Memo")] FeedingRecord feedingRecord)
         {
             if (id != feedingRecord.Id)
             {

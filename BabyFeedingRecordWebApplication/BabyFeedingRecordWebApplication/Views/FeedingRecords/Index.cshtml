@@ -73,6 +73,9 @@ else
                 @Html.DisplayNameFor(model => model.FormularMilkVolume)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.BabyFoodVolume)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Memo)
             </th>
             <th></th>
@@ -103,6 +106,10 @@ else
                 <td style=@selectedStyleColor>
                 @Html.DisplayFor(modelItem => item.FormularMilkVolume)
             </td>
+                <td style=@selectedStyleColor>
+                    @Html.DisplayFor(modelItem => item.BabyFoodVolume)
+                </td>
+
                 <td style=@selectedStyleColor>
                 @Html.DisplayFor(modelItem => item.Memo)
                   
