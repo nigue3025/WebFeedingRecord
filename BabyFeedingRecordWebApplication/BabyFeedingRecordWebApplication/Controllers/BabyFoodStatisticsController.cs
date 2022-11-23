@@ -47,8 +47,7 @@ namespace BabyFeedingRecordWebApplication.Controllers
                 babyFoods[i].WholeDates = feedingRecord.Where(a => a.Memo.Contains(babyFoods[i].Name) && (NowDate- a.FeedingTime).TotalDays<totalDay).Select(a => DateOnly.FromDateTime(a.FeedingTime)).ToList();
                 babyFoods[i].ConsecutiveDates=BabyFood.getLongestConsecutiveDates(babyFoods[i].WholeDates);
             }
-            
-
+            ViewData["BabyFoodDuration"] = totalDay;
             return View(babyFoods);
         }
 
@@ -81,9 +80,9 @@ namespace BabyFeedingRecordWebApplication.Controllers
         {
             return View(await _context.BabyFood.ToListAsync());
         }
-        public IActionResult Login()
+        public IActionResult Login(string? actn=null,string? ctrl=null)
         {
-            return RedirectToAction("Login", "FeedingRecords");
+            return RedirectToAction("Login", "Account",new {ctrl=ctrl,actn=actn });
         }
         public IActionResult Logout()
         {

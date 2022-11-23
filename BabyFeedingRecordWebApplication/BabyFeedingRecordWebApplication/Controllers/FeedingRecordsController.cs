@@ -44,29 +44,29 @@ namespace BabyFeedingRecordWebApplication.Controllers
         // GET: FeedingRecords
 
 
-        public IActionResult Login()
-        {
-            Account account = new Account();
-            return View(account);
-        }
+        //public IActionResult Login()
+        //{
+        //    Account account = new Account();
+        //    return View(account);
+        //}
 
 
-        [HttpPost]
-        public IActionResult Login(Account account)
-        {
-            Account _account = account;
-            var accntDct=Configuration.GetSection("Account").GetChildren().ToDictionary(x=>x.Key,y=>y.Value);
-            if (accntDct.ContainsKey(account.Name))
-                if (accntDct[account.Name]==account.Password)
-                {
-                    HttpContext.Session.SetInt32("LoginStatus", 0);
-                    account.status = string.Empty;
-                    return RedirectToAction("Index", "FeedingRecords", new { startIndex = 1 });
-                }
+        //[HttpPost]
+        //public IActionResult Login(Account account)
+        //{
+        //    Account _account = account;
+        //    var accntDct=Configuration.GetSection("Account").GetChildren().ToDictionary(x=>x.Key,y=>y.Value);
+        //    if (accntDct.ContainsKey(account.Name))
+        //        if (accntDct[account.Name]==account.Password)
+        //        {
+        //            HttpContext.Session.SetInt32("LoginStatus", 0);
+        //            account.status = string.Empty;
+        //            return RedirectToAction("Index", "FeedingRecords", new { startIndex = 1 });
+        //        }
 
-            account.status = "Incorrect name or password!";
-            return View(account);
-        }
+        //    account.status = "Incorrect name or password!";
+        //    return View(account);
+        //}
 
         public IActionResult Logout()
         {

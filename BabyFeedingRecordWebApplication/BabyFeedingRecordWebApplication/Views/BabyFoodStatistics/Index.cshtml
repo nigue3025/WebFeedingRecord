@@ -2,12 +2,24 @@
 
 @{
     ViewData["Title"] = "Index";
+    int duration = 30;
+    if (ViewData["BabyFoodDuration"] != null)
+        duration = int.Parse(ViewData["BabyFoodDuration"].ToString());
 }
 
-<h1>Index</h1>
+<h1>@duration 日副食品統計資料</h1>
 
 <p>
     <a asp-action="BabyFoodTypeList">Category of baby food</a>
+</p>
+
+<p>
+    <label>統計日基期選擇:</label>
+    <a asp-action="Index" asp-route-totalDay=7>7</a>
+    <a asp-action="Index" asp-route-totalDay=15>15</a>
+    <a asp-action="Index" asp-route-totalDay=30>30</a>
+     
+
 </p>
 <table class="table">
     <thead>
@@ -40,7 +52,7 @@
                         @foreach (var dateval in item.ConsecutiveDates)
                         {
 
-                            @if ((counter++ % 5) == 0)
+                            @if ((counter++ % 2) == 0)
                             {
                                 @if (counter - 1 > 0)
                                 {
