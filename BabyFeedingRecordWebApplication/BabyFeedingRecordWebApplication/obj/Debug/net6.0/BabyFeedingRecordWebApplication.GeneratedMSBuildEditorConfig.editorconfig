@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\nigue\source\repos\BabyFeedingRecordWebApplication\BabyFeedingRecordWebApplication
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/nigue/source/repos/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/nigue/source/repos/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/BabyFoodStatistics/BabyFoodTypeList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFieUZvb2RTdGF0aXN0aWNzXEJhYnlGb29kVHlwZUxpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

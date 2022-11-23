@@ -8,6 +8,9 @@
         public string LineID { get; set; }
 
         public string? status;
+
+        public string? currCtrl;
+        public string? currActn;
     }
 
     public class Group
