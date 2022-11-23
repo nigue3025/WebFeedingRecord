@@ -1,0 +1,67 @@
+﻿@model IEnumerable<BabyFeedingRecordWebApplication.Models.BabyFood>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="BabyFoodTypeList">Category of baby food</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                <label>食用連續天數(最長)列表</label>
+            </th>
+            <th>
+                <label>食用連續天數(最長)</label>
+            </th>
+            <th>
+                <label>食用總天數</label>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                    @if (item.ConsecutiveDates != null)
+                    {
+                        int counter = 0;
+                        @foreach (var dateval in item.ConsecutiveDates)
+                        {
+
+                            @if ((counter++ % 5) == 0)
+                            {
+                                @if (counter - 1 > 0)
+                                {
+                                    <br />
+                                }
+                            }
+                            <a asp-action="RecordOfDay" asp-route-queryDateStr=@dateval>@dateval</a>
+                            @if (counter<Model.Count()-1)
+                            {
+                                <label>, </label>
+                            }
+                        }
+                    }
+            </td>
+                <td>
+                    <a asp-action="Details" asp-route-id=@item.Id>@item.ConsecutiveDates.Count</a>
+                </td>
+            <td>
+                    <a asp-action="Details" asp-route-id=@item.Id>@item.WholeDates.Count</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

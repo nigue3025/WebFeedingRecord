@@ -1,0 +1,69 @@
+﻿@model BabyFeedingRecordWebApplication.Models.BabyFood
+
+@{
+    ViewData["Title"] = "Details";
+    int count_whole = 0;
+    int count_consecutive = 0;
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>BabyFood</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            <label>食用日期全列表</label>
+           <br />
+            <label>數量:@Model.WholeDates.Count</label>
+        </dt>
+  
+        <dd class="col-sm-10">
+            @foreach(var item in Model.WholeDates)
+            {
+                <label>@item</label>
+                if (item != Model.WholeDates.Last())
+                {
+                    <label>, </label>
+                }
+                if ((++count_whole % 5) == 0)
+                {
+                    <br />
+                }
+            }
+        </dd>
+        <dt class="col-sm-2">
+            <label>最長連續食用日期列表</label>
+            <br />
+            <label>數量:@Model.ConsecutiveDates.Count</label>
+        </dt>
+       
+  
+        <dd class="col-sm-10">
+            @foreach (var item in Model.ConsecutiveDates)
+            {
+                <label>@item</label>
+                if(item!=Model.ConsecutiveDates.Last())
+                {
+                    <label>, </label>
+                }
+
+                if((++count_consecutive%5)==0)
+                {
+                    <br />
+                }
+
+            }
+        </dd>
+    </dl>
+</div>
+<div>
+
+    <a asp-action="Index">Back to BabyFoodStatistics</a>
+</div>

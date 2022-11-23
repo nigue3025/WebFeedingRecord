@@ -1,0 +1,62 @@
+﻿@model IEnumerable<BabyFeedingRecordWebApplication.Models.BabyFood>
+@inject IHttpContextAccessor Accessor
+@{
+    ViewData["Title"] = "BabyFoodTypeList";
+    bool LogInstatus = false;
+    if (Accessor.HttpContext != null)
+    {
+        if (Accessor.HttpContext.Session.GetInt32("LoginStatus") == 0)
+            LogInstatus = true;
+    }
+}
+
+<h1>BabyFoodTypeList</h1>
+
+@if (LogInstatus)
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+      <p>
+        <a asp-action="Logout">Logout</a>
+        </p>
+}
+else
+{
+        <p>
+        <a asp-action="Login">Login</a>
+        </p>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            @if (LogInstatus)
+            {
+                <th></th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+    
+          @if(LogInstatus)
+          {
+            <td>
+            
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+            
+
+            </td>
+          }
+        </tr>
+}
+    </tbody>
+</table>
