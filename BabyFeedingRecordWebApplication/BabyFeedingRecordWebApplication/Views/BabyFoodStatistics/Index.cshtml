@@ -47,7 +47,7 @@
                                     <br />
                                 }
                             }
-                            <a asp-action="RecordOfDay" asp-route-queryDateStr=@dateval>@dateval</a>
+                            <a asp-action="RecordOfDay" asp-route-queryDateStr=@dateval.ToString("yyyy/MM/dd")>@dateval.ToString("yyyy/MM/dd")</a>
                             @if (counter<Model.Count()-1)
                             {
                                 <label>, </label>
