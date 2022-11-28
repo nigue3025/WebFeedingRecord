@@ -18,11 +18,14 @@ namespace BabyFeedingRecordWebApplication.Controllers
         public async Task<IActionResult> Index(int pageIndex=1)
         {
             var feedingRecords=await _context.FeedingRecord.ToListAsync();
+            var babyFoods = await _context.BabyFood.ToListAsync();
             
             FeedingStatisticsListBuilder feedingStatisticsListBuilder=new FeedingStatisticsListBuilder();
             feedingStatisticsListBuilder.Add(feedingRecords);
             ViewData["currPageNo"] = pageIndex;
-            return View(feedingStatisticsListBuilder.generateFeedingStatistics());
+            var feedingStatisticList = feedingStatisticsListBuilder.generateFeedingStatistics(babyFoods);
+           
+            return View(feedingStatisticList);
         }
 
 

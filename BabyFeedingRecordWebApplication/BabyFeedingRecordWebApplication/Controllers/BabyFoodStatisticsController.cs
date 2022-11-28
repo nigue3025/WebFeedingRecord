@@ -36,7 +36,7 @@ namespace BabyFeedingRecordWebApplication.Controllers
         }
 
         // GET: BabyFoods
-        public async Task<IActionResult> Index(int totalDay=30)
+        public async Task<IActionResult> Index(int totalDay=7)
         {
             var feedingRecord=await _context.FeedingRecord.ToListAsync();
             var babyFoods = await _context.BabyFood.ToListAsync();

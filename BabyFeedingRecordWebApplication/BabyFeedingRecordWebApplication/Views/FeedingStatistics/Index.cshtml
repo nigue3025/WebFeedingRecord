@@ -40,6 +40,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.TimeIntervalAvg)
             </th>
+                 <th>
+                @Html.DisplayNameFor(model => model.BabyFood)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -67,6 +70,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TimeIntervalAvg)
+            </td>
+                        <td>
+                    @Html.DisplayFor(modelItem => item.BabyFood)
             </td>
        
         </tr>

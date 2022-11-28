@@ -1,4 +1,5 @@
-﻿using NuGet.Protocol;
+﻿using MessagePack.Formatters;
+using NuGet.Protocol;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Policy;
@@ -63,9 +64,13 @@ namespace BabyFeedingRecordWebApplication.Models
         {
             return ((double) theMilk)/ totalMilk *100;
         }
-        
 
         public List<FeedingStatistics> generateFeedingStatistics()
+        {
+            return generateFeedingStatistics(new List<BabyFood>());
+        }
+
+        public List<FeedingStatistics> generateFeedingStatistics(List<BabyFood> bftypes)
         {
             List<FeedingStatistics> feedingstatisticList = new List<FeedingStatistics>();
             var revStatDict = statDict.Reverse();
@@ -75,16 +80,33 @@ namespace BabyFeedingRecordWebApplication.Models
                 double MMilkPercentage, FMilkPercentage;
                 getMilkSum(stat.Value, out motherMilkSum, out formularMilkSum, out MilkSum);
                 double intervalAvg = getTimeIntervalAvg(stat.Value);
-                FeedingStatistics feedingStatistics = new FeedingStatistics() { 
+
+
+
+
+
+                FeedingStatistics feedingStatistics = new FeedingStatistics() {
                     FeedingTime = stat.Key,
-                    MotherMilkTotal=motherMilkSum, 
-                    FormularMilkTotal=formularMilkSum,
-                    Total=MilkSum ,
-                    TimeIntervalAvg=intervalAvg,
-                    MotherMilkPercentage=getPercentage(motherMilkSum,MilkSum),
-                    FormularMilkPercentage=getPercentage(formularMilkSum,MilkSum),
-                    feedingRecords=stat.Value.ToList()
+                    MotherMilkTotal = motherMilkSum,
+                    FormularMilkTotal = formularMilkSum,
+                    Total = MilkSum,
+                    TimeIntervalAvg = intervalAvg,
+                    MotherMilkPercentage = getPercentage(motherMilkSum, MilkSum),
+                    FormularMilkPercentage = getPercentage(formularMilkSum, MilkSum),
+                    feedingRecords = stat.Value.ToList(),
+                    babyFoods = new List<string>()
                 };
+                if (bftypes != null)
+                {
+             
+                        var babyfoodlst = stat.Value.Where(a => a.BabyFoodVolume > 0).Select(a => a);
+                        foreach (var blst in babyfoodlst)
+                            foreach (var bftype in bftypes)
+                                if (blst.Memo != null)
+                                    if (blst.Memo.Contains(bftype.Name))
+                                        feedingStatistics.babyFoods.Add(bftype.Name);
+           
+                }          
                 feedingstatisticList.Add(feedingStatistics);
 
             }
@@ -121,6 +143,19 @@ namespace BabyFeedingRecordWebApplication.Models
             get
             {
                 return $"{this.FormularMilkTotal} ({this.FormularMilkPercentage.ToString("0.00")}%)";
+            }
+        }
+
+
+        public List<string> babyFoods;
+
+
+                [Display(Name = "副食品")]
+        public string BabyFood
+        {
+            get
+            {
+                return string.Join(",", babyFoods);
             }
         }
 
