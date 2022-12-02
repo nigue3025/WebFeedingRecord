@@ -1,6 +1,7 @@
 ﻿using BabyFeedingRecordWebApplication.Data;
 using BabyFeedingRecordWebApplication.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.VisualBasic.Syntax;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Immutable;
 
@@ -47,6 +48,17 @@ namespace BabyFeedingRecordWebApplication.Controllers
                 babyFoods[i].WholeDates = feedingRecord.Where(a => a.Memo.Contains(babyFoods[i].Name) && (NowDate- a.FeedingTime).TotalDays<totalDay).Select(a => DateOnly.FromDateTime(a.FeedingTime)).ToList();
                 babyFoods[i].ConsecutiveDates=BabyFood.getLongestConsecutiveDates(babyFoods[i].WholeDates);
             }
+
+           
+            babyFoods= babyFoods.OrderBy(a =>
+            {
+                if (a.WholeDates == null)
+                    return DateOnly.MinValue;
+                else if (a.WholeDates.Count == 0)
+                    return DateOnly.MinValue;
+                return a.WholeDates.Last();
+            }
+            ).Reverse().ToList();
             ViewData["BabyFoodDuration"] = totalDay;
             return View(babyFoods);
         }
