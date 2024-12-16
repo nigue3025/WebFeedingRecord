@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nigue\\source\\repos\\BabyFeedingRecordWebApplication\\BabyFeedingRecordWebApplication\\BabyFeedingRecordWebApplication.csproj": {}
+    "D:\\Git\\WebFeedingRecord\\BabyFeedingRecordWebApplication\\BabyFeedingRecordWebApplication\\BabyFeedingRecordWebApplication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nigue\\source\\repos\\BabyFeedingRecordWebApplication\\BabyFeedingRecordWebApplication\\BabyFeedingRecordWebApplication.csproj": {
+    "D:\\Git\\WebFeedingRecord\\BabyFeedingRecordWebApplication\\BabyFeedingRecordWebApplication\\BabyFeedingRecordWebApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nigue\\source\\repos\\BabyFeedingRecordWebApplication\\BabyFeedingRecordWebApplication\\BabyFeedingRecordWebApplication.csproj",
+        "projectUniqueName": "D:\\Git\\WebFeedingRecord\\BabyFeedingRecordWebApplication\\BabyFeedingRecordWebApplication\\BabyFeedingRecordWebApplication.csproj",
         "projectName": "BabyFeedingRecordWebApplication",
-        "projectPath": "C:\\Users\\nigue\\source\\repos\\BabyFeedingRecordWebApplication\\BabyFeedingRecordWebApplication\\BabyFeedingRecordWebApplication.csproj",
-        "packagesPath": "C:\\Users\\nigue\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nigue\\source\\repos\\BabyFeedingRecordWebApplication\\BabyFeedingRecordWebApplication\\obj\\",
+        "projectPath": "D:\\Git\\WebFeedingRecord\\BabyFeedingRecordWebApplication\\BabyFeedingRecordWebApplication\\BabyFeedingRecordWebApplication.csproj",
+        "packagesPath": "C:\\Users\\bryan_ni\\.nuget\\packages\\",
+        "outputPath": "D:\\Git\\WebFeedingRecord\\BabyFeedingRecordWebApplication\\BabyFeedingRecordWebApplication\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\nigue\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\bryan_ni\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,6 +35,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -97,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     }

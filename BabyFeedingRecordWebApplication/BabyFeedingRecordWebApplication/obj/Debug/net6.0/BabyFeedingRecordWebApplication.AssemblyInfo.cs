@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BabyFeedingRecordWebApplication")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8a1b084b3fd547e327dcd56333dfcc1887095b84")]
 [assembly: System.Reflection.AssemblyProductAttribute("BabyFeedingRecordWebApplication")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BabyFeedingRecordWebApplication")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

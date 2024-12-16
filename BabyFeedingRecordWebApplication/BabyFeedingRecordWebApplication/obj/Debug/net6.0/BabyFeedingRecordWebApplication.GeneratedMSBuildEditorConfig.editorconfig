@@ -5,92 +5,95 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BabyFeedingRecordWebApplication
 build_property.RootNamespace = BabyFeedingRecordWebApplication
-build_property.ProjectDir = C:\Users\nigue\source\repos\BabyFeedingRecordWebApplication\BabyFeedingRecordWebApplication\
+build_property.ProjectDir = D:\Git\WebFeedingRecord\BabyFeedingRecordWebApplication\BabyFeedingRecordWebApplication\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\nigue\source\repos\BabyFeedingRecordWebApplication\BabyFeedingRecordWebApplication
+build_property.MSBuildProjectDirectory = D:\Git\WebFeedingRecord\BabyFeedingRecordWebApplication\BabyFeedingRecordWebApplication
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/nigue/source/repos/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/Account/Login.cshtml]
+[D:/Git/WebFeedingRecord/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nigue/source/repos/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/BabyFoodStatistics/BabyFoodTypeList.cshtml]
+[D:/Git/WebFeedingRecord/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/BabyFoodStatistics/BabyFoodTypeList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFieUZvb2RTdGF0aXN0aWNzXEJhYnlGb29kVHlwZUxpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nigue/source/repos/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/BabyFoodStatistics/Create.cshtml]
+[D:/Git/WebFeedingRecord/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/BabyFoodStatistics/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFieUZvb2RTdGF0aXN0aWNzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nigue/source/repos/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/BabyFoodStatistics/Delete.cshtml]
+[D:/Git/WebFeedingRecord/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/BabyFoodStatistics/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFieUZvb2RTdGF0aXN0aWNzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nigue/source/repos/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/BabyFoodStatistics/Details.cshtml]
+[D:/Git/WebFeedingRecord/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/BabyFoodStatistics/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFieUZvb2RTdGF0aXN0aWNzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nigue/source/repos/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/BabyFoodStatistics/Index.cshtml]
+[D:/Git/WebFeedingRecord/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/BabyFoodStatistics/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFieUZvb2RTdGF0aXN0aWNzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nigue/source/repos/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/BabyFoodStatistics/RecordOfDay.cshtml]
+[D:/Git/WebFeedingRecord/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/BabyFoodStatistics/RecordOfDay.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFieUZvb2RTdGF0aXN0aWNzXFJlY29yZE9mRGF5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nigue/source/repos/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/FeedingRecords/Create.cshtml]
+[D:/Git/WebFeedingRecord/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/FeedingRecords/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZGluZ1JlY29yZHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nigue/source/repos/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/FeedingRecords/Delete.cshtml]
+[D:/Git/WebFeedingRecord/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/FeedingRecords/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZGluZ1JlY29yZHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nigue/source/repos/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/FeedingRecords/Details.cshtml]
+[D:/Git/WebFeedingRecord/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/FeedingRecords/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZGluZ1JlY29yZHNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nigue/source/repos/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/FeedingRecords/Edit.cshtml]
+[D:/Git/WebFeedingRecord/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/FeedingRecords/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZGluZ1JlY29yZHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nigue/source/repos/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/FeedingRecords/Index.cshtml]
+[D:/Git/WebFeedingRecord/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/FeedingRecords/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZGluZ1JlY29yZHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nigue/source/repos/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/FeedingStatistics/Index.cshtml]
+[D:/Git/WebFeedingRecord/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/FeedingStatistics/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZGluZ1N0YXRpc3RpY3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nigue/source/repos/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/FeedingStatistics/RecordOfDay.cshtml]
+[D:/Git/WebFeedingRecord/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/FeedingStatistics/RecordOfDay.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZGluZ1N0YXRpc3RpY3NcUmVjb3JkT2ZEYXkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nigue/source/repos/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/MovingAvgs/Index.cshtml]
+[D:/Git/WebFeedingRecord/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/MovingAvgs/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aW5nQXZnc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nigue/source/repos/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/Shared/Error.cshtml]
+[D:/Git/WebFeedingRecord/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nigue/source/repos/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Git/WebFeedingRecord/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nigue/source/repos/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/_ViewImports.cshtml]
+[D:/Git/WebFeedingRecord/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nigue/source/repos/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/_ViewStart.cshtml]
+[D:/Git/WebFeedingRecord/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nigue/source/repos/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/Shared/_Layout.cshtml]
+[D:/Git/WebFeedingRecord/BabyFeedingRecordWebApplication/BabyFeedingRecordWebApplication/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-czw2qh6qgu
