@@ -143,9 +143,6 @@ namespace BabyFeedingRecordWebApplication.Controllers
             try
             {
                 string jsonStr =String.Empty;
-                
-                
-
                 using (var reader = new StreamReader(HttpContext.Request.Body))
                 {
                      jsonStr = await reader.ReadToEndAsync();
@@ -191,7 +188,7 @@ namespace BabyFeedingRecordWebApplication.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FeedingTime,MotherMilkVolume,FormularMilkVolume,Memo")] FeedingRecord feedingRecord)
+        public async Task<IActionResult> Create([Bind("Id,FeedingTime,MotherMilkVolume,FormularMilkVolume,BabyFoodVolume,Memo")] FeedingRecord feedingRecord)
         {
             if (ModelState.IsValid)
             {
